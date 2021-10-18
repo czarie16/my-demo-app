@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      dotnet restore MyDemoApp/MyDemoApp.csproj
+  build:
+    commands:
+      dotnet publish -c release MyDemoApp/MyDemoApp.csproj -o ./publish
+artifacts:
+  files:
+    - installScripts/**/*
+    - appspec.yml
+    - ./publish/**/*
