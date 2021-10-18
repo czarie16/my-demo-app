@@ -19,3 +19,4 @@ artifacts:
   files:
     - C:\codebuild\artifacts\**\*
     - appspec.yml
+  discard-paths: yes
