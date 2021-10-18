@@ -11,10 +11,9 @@ phases:
       - nuget install MyDemoApp/MyDemoApp/packages.config
   pre_build:
     commands:
-      -nuget restore MyDemoApp/MyDemoApp.sln
+      - nuget restore MyDemoApp/MyDemoApp.sln
   build:
     commands:
-      - nuget restore
       - msbuild MyDemoApp/MyDemoApp/MyDemoApp.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
 artifacts:
   files:
