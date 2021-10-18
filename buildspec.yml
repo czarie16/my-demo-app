@@ -1,14 +1,17 @@
 version: 0.2
 
-phases:
-  pre_build:
-    commands:
-      dotnet restore MyDemoApp/MyDemoApp.csproj
+env:
+  variables:
+    PROJECT: MyDemoApp
+    DOTNET_FRAMEWORK: 4.5
+
+phases:  
   build:
     commands:
-      dotnet publish -c release MyDemoApp/MyDemoApp.csproj -o ./publish
+      - nuget restore
+      - msbuild $env:PROJECT/$env:PROJECT/$env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
 artifacts:
   files:
-    - installScripts/**/*
-    - appspec.yml
-    - ./publish/**/*
+    - '**/*'
+    - .ebextensions/**/*
+  base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
