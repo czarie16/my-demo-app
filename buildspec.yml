@@ -7,10 +7,10 @@ env:
 phases:
   pre_build:
     commands:
-      dotnet restore MyDemoApp/MyDemoApp.csproj
+      dotnet restore MyDemoApp/MyDemoApp/MyDemoApp.csproj
   build:
     commands:
-      dotnet publish -c release MyDemoApp/MyDemoApp.csproj -o ./publish
+      dotnet publish -c release MyDemoApp/MyDemoApp/MyDemoApp.csproj -o ./publish
 artifacts:
   files:
     - installScripts/**/*
