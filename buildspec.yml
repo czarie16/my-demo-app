@@ -5,7 +5,13 @@ env:
     PROJECT: MyDemoApp
     DOTNET_FRAMEWORK: 4.5
 
-phases:  
+phases: 
+  install:
+    commands:
+      - nuget install MyDemoApp/MyDemoApp/packages.config
+  pre_build:
+    commands:
+      -nuget restore MyDemoApp/MyDemoApp.sln
   build:
     commands:
       - nuget restore
