@@ -14,9 +14,9 @@ phases:
       - nuget restore MyDemoApp/MyDemoApp.sln
   build:
     commands:
-      - msbuild MyDemoApp/MyDemoApp/MyDemoApp.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=./publish
+      - msbuild $env:PROJECT/$env:PROJECT/$env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
 artifacts:
   files:
-    - installScripts/**/*
-    - appspec.yml
-    - ./publish/**/*
+    - '**/*'
+    - .ebextensions/**/*
+  base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:PROJECT}_Package\Archive\'
