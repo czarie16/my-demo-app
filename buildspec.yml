@@ -17,4 +17,4 @@ artifacts:
   - '*'
   - '**/*' 
   discard-paths: no
-  base-directory: ./MyDemoApp/MyDemoApp/publish/_PublishedWebsites/MyDemoApp
+  base-directory: ./MyDemoApp/MyDemoApp/publishFiles/_PublishedWebsites/MyDemoApp
