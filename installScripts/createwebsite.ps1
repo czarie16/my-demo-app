@@ -22,6 +22,8 @@ $website = "Default Web Site"
 $webAppPath = "c:\inetpub\wwwroot\" + $webAppName
 $webApplication = "IIS:\sites\" + $website + "\" + $webAppName
 
+# 
+
 #
 # Check to see if the directory exists. If it does not, create it, and then create the web site.
 #
@@ -34,5 +36,11 @@ if (-not (Test-Path $webAppPath))
     #
     New-WebApplication -Name $webAppName -ApplicationPool ".NET v4.5" -PhysicalPath $webAppPath -Site $website -force
     Set-WebConfiguration system.web/authentication $webApplication -value @{mode='Forms'}
+}
+else
+{
+	Get-ChildItem $webAppPath -Recurse | Remove-Item
+	
+
 }
 
