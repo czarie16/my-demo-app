@@ -17,7 +17,4 @@ phases:
       - msbuild $env:PROJECT/$env:PROJECT/$env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
 artifacts:
   files:
-    - .\MyDemoApp\MyDemoApp\obj\Release\Package\PackageTmp\*
-    discard-paths: yes
-    - appspec.yml
-    - installScripts\*
+    - '**/*'
