@@ -15,6 +15,7 @@ phases:
   post_build:
     commands:
       - mv appspec.yml ./MyDemoApp/MyDemoApp/publishFiles/_PublishedWebsites/MyDemoApp
+      - mv installScripts/**/* ./MyDemoApp/MyDemoApp/publishFiles/_PublishedWebsites/MyDemoApp
 artifacts: 
   files:  
   - '*'
