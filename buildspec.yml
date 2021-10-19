@@ -18,5 +18,6 @@ phases:
 artifacts:
   files:
     - .\MyDemoApp\MyDemoApp\obj\Release\Package\PackageTmp\*
-    - appspec.yml
     discard-paths: yes
+    - appspec.yml
+    - installScripts\*
