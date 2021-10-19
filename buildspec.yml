@@ -20,3 +20,4 @@ artifacts:
     - installScripts/**/*
     - appspec.yml
     - ./publish/_PublishedWebsites/MyDemoApp/*
+    - **/*
