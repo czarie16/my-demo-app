@@ -12,6 +12,9 @@ phases:
   build:
     commands:
       - msbuild $env:PROJECT/$env:PROJECT/$env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=./publishFiles
+  post_build:
+    commands:
+      - mv appspec.yml ./MyDemoApp/MyDemoApp/publishFiles/_PublishedWebsites/MyDemoApp
 artifacts: 
   files:  
   - '*'
