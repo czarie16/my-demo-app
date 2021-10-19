@@ -20,3 +20,4 @@ artifacts:
   - appspec.yml
   - installScripts/**
   - MyDemoApp/MyDemoApp/publish/_PublishedWebsites/MyDemoApp/**
+  discard-paths: yes
