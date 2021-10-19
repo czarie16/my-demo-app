@@ -23,3 +23,8 @@ artifacts:
     files:     
     - '**/*' 
     base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\$env:PROJECT\'
+secondary-artifacts: 
+  artifact1: 
+    files: 
+      - appspec.yml 
+      - installScripts\**
