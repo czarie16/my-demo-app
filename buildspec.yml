@@ -14,17 +14,9 @@ phases:
       - nuget restore MyDemoApp/MyDemoApp.sln
   build:
     commands:
-      - msbuild $env:PROJECT/$env:PROJECT/$env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\
-  post_build:
-    commands:
-      - mv appspec.yml 'C:\codebuild\artifacts\'
-      - mv installScripts\** 'C:\codebuild\artifacts\'
+      - msbuild $env:PROJECT/$env:PROJECT/$env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=./publish
 artifacts: 
     files:     
-    - '**/*' 
-    base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\$env:PROJECT\'
-secondary-artifacts: 
-  artifact1: 
-    files: 
-      - appspec.yml 
-      - installScripts\**
+    - installScripts/**/*
+    - appspec.yml
+    - ./publish/**/*
