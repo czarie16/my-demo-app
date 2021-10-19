@@ -19,4 +19,4 @@ artifacts:
   files:
     - .\MyDemoApp\MyDemoApp\obj\Release\Package\PackageTmp\*
     - appspec.yml
-  discard-paths: yes
+    discard-paths: yes
