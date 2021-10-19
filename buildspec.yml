@@ -19,4 +19,4 @@ artifacts:
     files:     
     - installScripts/**/*
     - appspec.yml
-    - ./publish/**/*
+    - ./publish/_PublishedWebsites/MyDemoApp/*
