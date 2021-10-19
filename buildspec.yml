@@ -15,8 +15,11 @@ phases:
   build:
     commands:
       - msbuild $env:PROJECT/$env:PROJECT/$env:PROJECT.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\
+  post_build:
+    commands:
+      - mv appspec.yml 'C:\codebuild\artifacts\'
+      - mv installScripts\** 'C:\codebuild\artifacts\'
 artifacts: 
-    files: 
-    - appspec.yml
+    files:     
     - '**/*' 
     base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\$env:PROJECT\'
